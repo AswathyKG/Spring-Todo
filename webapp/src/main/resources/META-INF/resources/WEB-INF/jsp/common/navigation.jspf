@@ -3,11 +3,11 @@
         <div class="container">
             <h1 class=""><img class="logo" id="logo" src="image/logo-white.png"></h1>
             <ul>
-                <li><a href="home">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="list-todos">Todo List</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="logout">Logout</a></li>
             </ul>
         </div>
     </nav>

@@ -2,13 +2,21 @@ package com.aswathy.webapp.todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Todo {
-
+	
+	@Id
+	@GeneratedValue
 	private int id;
 	@Size(min=5, message ="Enter atleast 5 alphabets")
+	
 	private String task;
 	@Size(min=10, message="Enter atleast 10 alphabets")
 	private String description;
@@ -16,6 +24,9 @@ public class Todo {
 	private LocalDate targetDate;
 	private boolean status;
 	
+	public Todo() {
+		
+	}
 //	constructor
 	public Todo(int id, String task, String description, LocalDate targetDate, boolean status) {
 		super();

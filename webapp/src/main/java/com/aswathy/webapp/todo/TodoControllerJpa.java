@@ -18,16 +18,17 @@ import org.springframework.web.service.annotation.DeleteExchange;
 
 import jakarta.validation.Valid;
 
-//@Controller
+@Controller
 @SessionAttributes("name")
-public class TodoController {
+public class TodoControllerJpa {
 
 	private TodoService todoService;
+	private TodoRepository todoRepository;
 	
-	
-	public TodoController(TodoService todoSevice) {
+	public TodoControllerJpa(TodoService todoSevice,TodoRepository todoRepository) {
 		super();
 		this.todoService = todoSevice;
+		this.todoRepository = todoRepository;
 	}
 
 
@@ -35,7 +36,7 @@ public class TodoController {
 	@RequestMapping("list-todos")
 	public String listAllTodos(ModelMap model) {
 		String username =getLoggedInUsername(model);
-		List<Todo> todos = todoService.findByUsername(username);
+		List<Todo> todos = todoRepository.findAll();
 		model.addAttribute("todos", todos);
 		
 		return "listTodos";
